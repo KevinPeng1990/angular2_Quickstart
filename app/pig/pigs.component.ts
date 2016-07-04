@@ -14,15 +14,29 @@ import { PigService } from './pig.service';
 
 })
 export class PigsComponent implements OnInit {
-    pigs: Observable<any[]>;
+    pigs: any[];
 
     constructor(private _pigService: PigService) { }
 
     ngOnInit() { 
-        this.pigs = this._pigService.getPigs()
+        this._pigService.getPigs().then((pigs) => this.pigs = pigs)
         .catch((err) => {
             console.log(err); // don't do this, show the user a nice message
-            return Observable.of([true]); // now we eat it, but only if the message has been communicated to the user
+
         });
+
+        // pigs = Promise<any[]> version
+        // this.pigs = this._pigService.getPigs()
+        // .catch((err) => {
+        //     console.log(err); // don't do this, show the user a nice message
+
+        // });
+
+        // Rx observable version        
+        // this.pigs = this._pigService.getPigs()
+        // .catch((err) => {
+        //     console.log(err); // don't do this, show the user a nice message
+        //     return Observable.of([true]); // now we eat it, but only if the message has been communicated to the user
+        // });
     }
 }

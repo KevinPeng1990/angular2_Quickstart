@@ -11,7 +11,11 @@ export class PigService {
     getPigs() {
         return this._http.get(URL_PIGS)
         .map((response: Response) => response.json())
-        .catch(this._handlerError);
+        .toPromise()
+        .catch((err: any) => {
+            console.log(err); // again, customize me please
+            return Promise.reject(err);
+        });
     }
 
     _handlerError(err: any){
