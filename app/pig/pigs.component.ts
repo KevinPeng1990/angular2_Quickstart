@@ -9,8 +9,7 @@ import { PigService } from './pig.service';
     moduleId: module.id,
     selector: 'app-pigs',
     templateUrl: 'pigs.component.html',
-    directives: [PigComponent],
-    providers: [PigService]
+    directives: [PigComponent]
 
 })
 export class PigsComponent implements OnInit {
