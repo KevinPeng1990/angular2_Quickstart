@@ -18,6 +18,12 @@ export class PigService {
         });
     }
 
+    getPigs_rxObservable() {
+        return this._http.get(URL_PIGS)
+        .map((response: Response) => response.json())
+        .catch(this._handlerError)
+    }
+
     _handlerError(err: any){
         console.log(err); // log this somewhere and format the message well for devs
         return Observable.throw(err); // our opportunity to customize this error

@@ -18,18 +18,26 @@ export class PigsComponent implements OnInit {
 
     constructor(private _pigService: PigService) { }
 
-    ngOnInit() { 
-        this._pigService.getPigs().then((pigs) => this.pigs = pigs)
-        .catch((err) => {
-            console.log(err); // don't do this, show the user a nice message
+    ngOnInit() {
+        // Rx observable version with subscribe function to a pigs array     
+        this._pigService.getPigs_rxObservable()
+            .subscribe(
+            // it worked
+            (pigs) => this.pigs = pigs,
+            // error
+            (err) => { console.log(err); } // don't do this, show the user a nice message.
+            );
 
-        });
+        // Straight up promise to array
+        // this._pigService.getPigs().then((pigs) => this.pigs = pigs)
+        // .catch((err) => {
+        //     console.log(err); // don't do this, show the user a nice message.
+        // });
 
         // pigs = Promise<any[]> version
         // this.pigs = this._pigService.getPigs()
         // .catch((err) => {
-        //     console.log(err); // don't do this, show the user a nice message
-
+        //     console.log(err); // don't do this, show the user a nice message.
         // });
 
         // Rx observable version        
