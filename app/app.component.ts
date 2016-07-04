@@ -1,7 +1,24 @@
 import { Component } from '@angular/core';
+import { PigsComponent } from './pig/pigs.component';
+
 
 @Component({
+    moduleId: module.id,
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+    templateUrl: 'app.component.html',
+    directives: [PigsComponent]
 })
-export class AppComponent { }
+export class AppComponent { 
+    // [ ] means property binding - Component to DOM
+    // ( ) means event binding - DOM to Component
+
+
+    title = 'Pig App';
+    name = 'SP';
+    pigColor = 'blue';
+
+
+    changePig() {
+        this.pigColor = this.pigColor === 'blue' ? 'pink' : 'blue';
+    }
+}

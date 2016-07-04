@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+<div [style.color]='pigColor'>
+    Hello {{name}}
+</div>
+<input type="text" [(ngModel)]="name">
+<button (click)="changePig()">Change Pig</button>
+<br />
+
+<app-pigs></app-pigs>

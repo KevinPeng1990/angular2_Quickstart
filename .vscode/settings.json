@@ -1,0 +1,18 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+        // Configure glob patterns for excluding files and folders.
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.DS_Store": true,
+        "node_modules/**": true,
+        "app/**/**.js": true,
+        "app/**.js": true,
+        "app/**/**.map": true,
+        "app/**.map": true
+    },
+    // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange". If set to "afterDelay" you can configure the delay in "files.autoSaveDelay".
+    "files.autoSave": "afterDelay",
+    // Controls the delay in ms after which a dirty file is saved automatically. Only applies when "files.autoSave" is set to "afterDelay"
+    "files.autoSaveDelay": 1000
+}
